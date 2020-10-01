@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/recent_orders.dart';
 import '../data/data.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -57,6 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   hintText: 'Search Food Or Restaurant'),
             ),
           ),
+          RecentOrders(),
         ],
       ),
     );
