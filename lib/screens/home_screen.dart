@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food_delivery_ui/screens/cart_screen.dart';
 import '../models/restaurant.dart';
 import '../widgets/recent_orders.dart';
 import '../data/data.dart';
@@ -19,11 +20,13 @@ class _HomeScreenState extends State<HomeScreen> {
         restautrantList.add(
           GestureDetector(
             onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (ctx) => RestaurantScreen(
-                          restaurant: restaurant,
-                        ))),
+              context,
+              MaterialPageRoute(
+                builder: (ctx) => RestaurantScreen(
+                  restaurant: restaurant,
+                ),
+              ),
+            ),
             child: Container(
               margin: EdgeInsets.symmetric(
                 horizontal: 20,
@@ -109,7 +112,11 @@ class _HomeScreenState extends State<HomeScreen> {
         leading: Icon(Icons.account_circle),
         actions: [
           FlatButton(
-            onPressed: () {},
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (ctx) => CartScreen(),
+              ),
+            ),
             child: Text(
               'Cart (${currentUser.cart.length})',
               style: TextStyle(
